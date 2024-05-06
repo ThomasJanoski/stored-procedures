@@ -1,0 +1,24 @@
+CREATE TABLE Curso (
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE Alunos (
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45) NOT NULL,
+    sobrenome VARCHAR(45) NOT NULL,
+    email VARCHAR(90) NOT NULL,
+    cursoID INT,
+    
+    FOREIGN KEY (cursoID) REFERENCES Curso(ID)
+);
+
+CREATE TABLE Professores (
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45) NOT NULL,
+    sobrenome VARCHAR(45) NOT NULL,
+    email VARCHAR(90) NOT NULL,
+    
+    cursoAtual INT,
+    FOREIGN KEY (cursoAtual) REFERENCES Curso(ID)
+);
